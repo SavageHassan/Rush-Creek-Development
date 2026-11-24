@@ -332,9 +332,17 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <p className="label mt-4 text-ink-muted">
-              The Parkway Neighborhood, Dayton, Minnesota — rendering
-            </p>
+            <div className="mt-5 flex flex-col gap-3 border-t border-bronze/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="label text-ink-muted">
+                The Parkway Neighborhood, Dayton, Minnesota &mdash; rendering
+              </p>
+              <Link
+                href="/projects/parkway-neighborhood"
+                className="label link-underline text-bronze-deep"
+              >
+                View the project
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
