@@ -142,27 +142,65 @@ export default function HomePage() {
 
       {/* Track record */}
       <section className="bg-ink py-24 text-paper md:py-32">
-        <div className="shell grid gap-14 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <SectionHead index="02" label="Track record" tone="light" />
-            <h2 className="display mt-8 text-[clamp(1.7rem,3.1vw,2.6rem)] leading-[1.06]">
+        <div className="shell">
+          {/* Header runs the full width, so the figures get the room */}
+          <SectionHead index="02" label="Track record" tone="light" />
+
+          <div className="mt-10 grid gap-y-8 md:grid-cols-12 md:items-end md:gap-x-10">
+            <h2 className="display text-[clamp(1.9rem,4vw,3.4rem)] leading-[1.04] md:col-span-7">
               <RevealLines
                 lines={[
                   <span key="l1">A record built on</span>,
-                  <em key="l2" className="italic text-accent-light">
-                    delivery, not projection.
-                  </em>,
+                  <span key="l2">delivery, not projection.</span>,
                 ]}
               />
             </h2>
-            <Reveal delay={0.12}>
-              <p className="mt-8 max-w-md text-[1rem] leading-[1.8] text-paper/70">
+            <Reveal delay={0.1} className="md:col-span-5">
+              <p className="text-[1rem] leading-[1.8] text-paper/70">
                 Three developments across Minnesota and Kansas, each taken from site assembly
                 through entitlement, capital and construction. Two more are underway for 2026.
               </p>
             </Reveal>
-            <Reveal delay={0.2}>
-              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+          </div>
+
+          {/* Figures as cards */}
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { index: '01', value: 21, suffix: '%', label: 'Average IRR', note: 'Across completed developments' },
+              { index: '02', value: 485, suffix: '', label: 'Units built', note: 'Delivered in Minnesota and Kansas' },
+              { index: '03', value: 120, prefix: '$', suffix: 'm', label: 'Capital raised', note: 'Debt and equity across the portfolio' },
+              { index: '04', value: 2, suffix: '', label: '2026 projects', note: 'In development for Spring 2026' },
+            ].map((stat, i) => (
+              <Reveal as="li" key={stat.label} delay={i * 0.08}>
+                <div className="group flex h-full flex-col justify-between border border-white/15 bg-ink-soft/50 p-7 transition-colors duration-500 hover:border-white/40 md:p-8">
+                  <div className="flex items-start justify-between">
+                    <span className="label text-paper/40">{stat.index}</span>
+                    <span className="h-px w-10 bg-white/25 transition-all duration-700 ease-editorial group-hover:w-16 group-hover:bg-white/60" />
+                  </div>
+
+                  <dd className="display mt-12 text-[clamp(2.6rem,5vw,4rem)] leading-none">
+                    <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  </dd>
+
+                  <div className="mt-5 border-t border-white/12 pt-4">
+                    <dt className="label text-paper">{stat.label}</dt>
+                    <p className="mt-2 text-[0.82rem] leading-relaxed text-paper/45">{stat.note}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+
+          <div className="mt-10 flex flex-col gap-6 border-t border-white/15 pt-7 md:flex-row md:items-center md:justify-between">
+            <Reveal>
+              <p className="max-w-3xl text-[0.78rem] leading-relaxed text-paper/40">
+                Figures as published by Rush Creek Development. Average IRR reflects realised results
+                across completed projects; target returns on current offerings are stated as targets
+                on each project page.
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="flex shrink-0 flex-wrap items-center gap-x-6 gap-y-3">
                 <Link
                   href="/projects"
                   className="label border border-white/35 px-7 py-4 text-paper transition-colors duration-500 hover:bg-paper hover:text-ink"
@@ -173,28 +211,6 @@ export default function HomePage() {
                   How we underwrite
                 </Link>
               </div>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-6 md:col-start-7">
-            <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-              {trackRecord.map((stat, i) => (
-                <Reveal key={stat.label} delay={i * 0.08}>
-                  <div className="border-t border-accent/45 py-8">
-                    <dd className="display text-[clamp(2.4rem,4.6vw,3.9rem)] leading-none">
-                      <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                    </dd>
-                    <dt className="label mt-4 text-accent-light/85">{stat.label}</dt>
-                  </div>
-                </Reveal>
-              ))}
-            </dl>
-            <Reveal delay={0.3}>
-              <p className="mt-6 border-t border-white/12 pt-6 text-[0.78rem] leading-relaxed text-paper/40">
-                Figures as published by Rush Creek Development. Average IRR reflects realised
-                results across completed projects; target returns on current offerings are stated
-                as targets on each project page.
-              </p>
             </Reveal>
           </div>
         </div>
