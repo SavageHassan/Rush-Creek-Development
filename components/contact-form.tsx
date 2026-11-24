@@ -87,7 +87,7 @@ export default function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             className="border-t border-ink/15 pt-10"
           >
-            <p className="label text-bronze-deep">Thank you</p>
+            <p className="label text-accent-deep">Thank you</p>
             <h3 className="display mt-6 text-[clamp(1.6rem,2.9vw,2.4rem)] leading-tight">
               Your enquiry has been <em className="italic">received</em>
             </h3>
@@ -114,28 +114,28 @@ export default function ContactForm() {
           >
             <div className="grid gap-x-10 gap-y-6 sm:grid-cols-2">
               <div id="field-firstName">
-                <label htmlFor="firstName" className="label text-bronze-deep">
+                <label htmlFor="firstName" className="label text-accent-deep">
                   First name *
                 </label>
                 <input id="firstName" name="firstName" autoComplete="given-name" className={fieldBase} />
                 {err('firstName')}
               </div>
               <div id="field-lastName">
-                <label htmlFor="lastName" className="label text-bronze-deep">
+                <label htmlFor="lastName" className="label text-accent-deep">
                   Last name *
                 </label>
                 <input id="lastName" name="lastName" autoComplete="family-name" className={fieldBase} />
                 {err('lastName')}
               </div>
               <div id="field-email">
-                <label htmlFor="email" className="label text-bronze-deep">
+                <label htmlFor="email" className="label text-accent-deep">
                   Email *
                 </label>
                 <input id="email" name="email" type="email" autoComplete="email" className={fieldBase} />
                 {err('email')}
               </div>
               <div id="field-phone">
-                <label htmlFor="phone" className="label text-bronze-deep">
+                <label htmlFor="phone" className="label text-accent-deep">
                   Phone
                 </label>
                 <input id="phone" name="phone" type="tel" autoComplete="tel" className={fieldBase} />
@@ -144,7 +144,7 @@ export default function ContactForm() {
             </div>
 
             <fieldset id="field-accredited" className="border-t border-ink/15 pt-8">
-              <legend className="label text-bronze-deep">Are you an accredited investor? *</legend>
+              <legend className="label text-accent-deep">Are you an accredited investor? *</legend>
               <div className="mt-6 flex gap-3">
                 {['Yes', 'No'].map((option) => (
                   <button
@@ -154,8 +154,8 @@ export default function ContactForm() {
                     aria-pressed={accredited === option}
                     className={`label border px-7 py-4 transition-colors duration-300 ${
                       accredited === option
-                        ? 'border-bronze bg-bronze text-ink-deep'
-                        : 'border-ink/25 hover:border-bronze'
+                        ? 'border-ink bg-ink text-paper'
+                        : 'border-ink/25 hover:border-ink'
                     }`}
                   >
                     {option}
@@ -169,7 +169,7 @@ export default function ContactForm() {
             </fieldset>
 
             <fieldset id="field-timeline" className="border-t border-ink/15 pt-8">
-              <legend className="label text-bronze-deep">When do you plan to invest? *</legend>
+              <legend className="label text-accent-deep">When do you plan to invest? *</legend>
               <div className="mt-6 flex flex-wrap gap-3">
                 {timelines.map((option) => (
                   <button
@@ -178,7 +178,7 @@ export default function ContactForm() {
                     onClick={() => setTimeline(option)}
                     aria-pressed={timeline === option}
                     className={`label border px-7 py-4 transition-colors duration-300 ${
-                      timeline === option ? 'border-bronze bg-bronze text-ink-deep' : 'border-ink/25 hover:border-bronze'
+                      timeline === option ? 'border-ink bg-ink text-paper' : 'border-ink/25 hover:border-ink'
                     }`}
                   >
                     {option}
@@ -189,7 +189,7 @@ export default function ContactForm() {
             </fieldset>
 
             <fieldset id="field-amount" className="border-t border-ink/15 pt-8">
-              <legend className="label text-bronze-deep">How much are you planning to invest? *</legend>
+              <legend className="label text-accent-deep">How much are you planning to invest? *</legend>
               <div className="mt-6 flex flex-wrap gap-3">
                 {amounts.map((option) => (
                   <button
@@ -198,7 +198,7 @@ export default function ContactForm() {
                     onClick={() => setAmount(option)}
                     aria-pressed={amount === option}
                     className={`label border px-7 py-4 transition-colors duration-300 ${
-                      amount === option ? 'border-bronze bg-bronze text-ink-deep' : 'border-ink/25 hover:border-bronze'
+                      amount === option ? 'border-ink bg-ink text-paper' : 'border-ink/25 hover:border-ink'
                     }`}
                   >
                     {option}
@@ -209,7 +209,7 @@ export default function ContactForm() {
             </fieldset>
 
             <div id="field-message" className="border-t border-ink/15 pt-8">
-              <label htmlFor="message" className="label text-bronze-deep">
+              <label htmlFor="message" className="label text-accent-deep">
                 Share a question or provide feedback
               </label>
               <textarea id="message" name="message" rows={4} className={`${fieldBase} resize-none`} />
@@ -235,7 +235,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="label border border-bronze bg-bronze px-12 py-5 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-deep disabled:opacity-50"
+                className="label border border-ink bg-ink px-12 py-5 text-paper transition-colors duration-500 hover:bg-transparent hover:text-ink disabled:opacity-50"
               >
                 {status === 'sending' ? 'Sending…' : 'Submit enquiry'}
               </button>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView, type Variants } from 'framer-motion';
-import { useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -14,6 +14,25 @@ export const stagger: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
 };
+
+/**
+ * Anything already on screen when the component mounts plays straight away.
+ * Waiting on the intersection observer for above-the-fold content left heroes
+ * blank for as long as the first paint took.
+ */
+function useReveal(ref: React.RefObject<HTMLElement | null>, amount: number) {
+  const observed = useInView(ref, { once: true, amount });
+  const [onScreenAtMount, setOnScreenAtMount] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) setOnScreenAtMount(true);
+  }, [ref]);
+
+  return observed || onScreenAtMount;
+}
 
 export function Reveal({
   children,
@@ -28,7 +47,7 @@ export function Reveal({
 }) {
   const Comp = motion[as];
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.08 });
+  const show = useReveal(ref, 0.08);
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -36,7 +55,7 @@ export function Reveal({
       ref={ref as any}
       className={className}
       initial={{ opacity: 0, y: 28 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+      animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
       transition={{ duration: 0.9, ease, delay }}
     >
       {children}
@@ -57,7 +76,7 @@ export function RevealLines({
   delay?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.15 });
+  const show = useReveal(ref, 0.15);
 
   return (
     <span ref={ref} className={className}>
@@ -66,7 +85,7 @@ export function RevealLines({
           <motion.span
             className={`block ${lineClassName ?? ''}`}
             initial={{ y: '112%' }}
-            animate={inView ? { y: '0%' } : { y: '112%' }}
+            animate={show ? { y: '0%' } : { y: '112%' }}
             transition={{ duration: 1.05, ease, delay: delay + i * 0.08 }}
           >
             {line}

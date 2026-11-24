@@ -9,7 +9,7 @@ export default function TermsPage() {
   return (
     <LegalPage
       title="Terms & Conditions"
-      lines={[<span key="l1">Terms &amp;</span>, <em key="b" className="italic">Conditions</em>]}
+      lines={[<span key="l1">Terms &amp;</span>, <span key="l2">Conditions</span>]}
       intro="Welcome to Rush Creek Developments. These Terms and Conditions outline the rules and regulations for the use of our website and services. By accessing our website and engaging with our services, you agree to be bound by these terms. If you do not agree with any of these terms, please do not use our services."
       sections={[
         {

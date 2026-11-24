@@ -83,7 +83,7 @@ export default function SiteHeader() {
                 href={site.bookingUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="label border border-bronze px-6 py-3 text-bronze-light transition-colors duration-300 hover:bg-bronze hover:text-ink-deep"
+                className="label border border-white/40 px-6 py-3 text-paper transition-colors duration-300 hover:bg-paper hover:text-ink"
               >
                 Book a call
               </a>
@@ -135,7 +135,7 @@ export default function SiteHeader() {
                         className="flex items-baseline justify-between py-5"
                       >
                         <span className="display text-[2rem] leading-none">{item.label}</span>
-                        <span className="label text-bronze-light">0{i + 1}</span>
+                        <span className="label text-accent-light">0{i + 1}</span>
                       </Link>
                     </motion.div>
                   </li>
@@ -148,7 +148,7 @@ export default function SiteHeader() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, ease, delay: 0.5 }}
-                className="label block border border-bronze bg-bronze py-5 text-center text-ink-deep"
+                className="label block border border-paper bg-paper py-5 text-center text-ink"
               >
                 Book a call
               </motion.a>

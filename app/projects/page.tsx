@@ -17,10 +17,10 @@ export default function ProjectsPage() {
     <>
       <PageHero
         label="Portfolio"
-        lines={[<span key="l1">Current and</span>, <em key="b" className="italic">completed work</em>]}
+        lines={[<span key="l1">Current and</span>, <span key="l2">completed work</span>]}
         intro="A boutique real estate development firm specialising in challenging and historic sites throughout the Midwest. Every project below has been designed, entitled, underwritten or delivered by Rush Creek."
-        image="/images/parkway/view-from-northeast.jpg"
-        imageAlt="Rendering of The Parkway Neighborhood, Dayton, Minnesota"
+        image="/images/parkway/site-aerial.jpg"
+        imageAlt="Aerial photograph of a Rush Creek development site"
         height="short"
         meta={[
           { label: 'Capital raised', value: '$120m' },
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
           <Reveal delay={0.1}>
             <Link
               href="/projects/parkway-neighborhood"
-              className="label inline-block border border-bronze bg-bronze px-9 py-5 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-light"
+              className="label inline-block border border-paper bg-paper text-ink transition-colors duration-500 hover:bg-transparent hover:text-paper px-9 py-5"
             >
               The Parkway Neighborhood
             </Link>

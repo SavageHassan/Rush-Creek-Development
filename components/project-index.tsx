@@ -28,7 +28,7 @@ export default function ProjectIndex({ items }: { items: Project[] }) {
                 animate={{ opacity: 1, scale: 1, clipPath: 'inset(0% 0 0% 0)' }}
                 exit={{ opacity: 0, scale: 1.02, clipPath: 'inset(12% 0 12% 0)' }}
                 transition={{ duration: 0.65, ease }}
-                className="relative h-full w-full overflow-hidden ring-1 ring-bronze/35"
+                className="relative h-full w-full overflow-hidden ring-1 ring-accent/35"
               >
                 <Image
                   src={activeProject.cover.src}
@@ -53,7 +53,7 @@ export default function ProjectIndex({ items }: { items: Project[] }) {
               className="group block py-8 md:py-10"
             >
               <div className="flex flex-col gap-5 lg:w-[62%] lg:flex-row lg:items-baseline lg:gap-10">
-                <span className="numeral-outline w-16 shrink-0 text-[2.75rem] text-bronze">{p.index}</span>
+                <span className="numeral-outline w-16 shrink-0 text-[2.75rem] text-accent">{p.index}</span>
                 <div className="flex-1">
                   <h3 className="display text-[1.8rem] leading-[1.05] transition-transform duration-700 ease-editorial group-hover:translate-x-2 sm:text-[2.3rem] lg:text-[2.3rem]">
                     {p.name}
@@ -64,7 +64,7 @@ export default function ProjectIndex({ items }: { items: Project[] }) {
                 </div>
                 <div className="flex shrink-0 flex-col gap-1 text-right lg:w-44">
                   <span className="label text-ink-muted">{p.location}</span>
-                  <span className="label text-bronze-deep">{p.year}</span>
+                  <span className="label text-accent-deep">{p.year}</span>
                 </div>
               </div>
 

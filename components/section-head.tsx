@@ -23,7 +23,7 @@ export default function SectionHead({
         {index && (
           <span
             className={`numeral-outline shrink-0 text-[clamp(2.4rem,4.6vw,3.8rem)] ${
-              tone === 'dark' ? 'text-bronze' : 'text-bronze-light'
+              tone === 'dark' ? 'text-accent' : 'text-accent-light'
             }`}
             aria-hidden
           >
@@ -32,7 +32,7 @@ export default function SectionHead({
         )}
         <div className="flex-1 pt-2">
           <div className={`h-px w-full ${rule}`} />
-          <span className={`label mt-4 block ${tone === 'dark' ? 'text-bronze-deep' : 'text-bronze-light'}`}>
+          <span className={`label mt-4 block ${tone === 'dark' ? 'text-accent-deep' : 'text-accent-light'}`}>
             {label}
           </span>
         </div>

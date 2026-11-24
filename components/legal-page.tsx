@@ -20,7 +20,7 @@ export default function LegalPage({
     <>
       <section className="bg-ink pb-16 pt-36 text-paper md:pb-20 md:pt-44">
         <div className="shell">
-          <p className="label text-bronze-light">Legal</p>
+          <p className="label text-accent-light">Legal</p>
           <h1 className="display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.2vw,4.2rem)] leading-[0.98]">
             <RevealLines lines={lines} />
           </h1>
@@ -29,14 +29,14 @@ export default function LegalPage({
               <p className="mt-8 max-w-2xl text-[1rem] leading-[1.8] text-paper/70">{intro}</p>
             </Reveal>
           )}
-          {effective && <p className="label mt-8 text-bronze-light/85">{effective}</p>}
+          {effective && <p className="label mt-8 text-accent-light/85">{effective}</p>}
         </div>
       </section>
 
       <section className="bg-paper py-20 md:py-28">
         <div className="shell grid gap-10 md:grid-cols-12">
           <div className="md:col-span-3">
-            <p className="label text-bronze-deep md:sticky md:top-32">{title}</p>
+            <p className="label text-accent-deep md:sticky md:top-32">{title}</p>
           </div>
           <div className="md:col-span-8 md:col-start-5">
             {sections.map((section, i) => (
@@ -56,7 +56,7 @@ export default function LegalPage({
                     <ul className="mt-6 max-w-2xl space-y-3">
                       {section.list.map((item, j) => (
                         <li key={j} className="flex gap-4 text-[0.98rem] leading-[1.75] text-ink/75">
-                          <span className="label mt-[6px] shrink-0 text-bronze">
+                          <span className="label mt-[6px] shrink-0 text-accent">
                             {String(j + 1).padStart(2, '0')}
                           </span>
                           <span>{item}</span>

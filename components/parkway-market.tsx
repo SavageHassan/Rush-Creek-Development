@@ -50,9 +50,9 @@ export default function ParkwayMarket() {
         <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
           {marketStats.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.07}>
-              <div className="border-t border-bronze/50 pt-6">
+              <div className="border-t border-accent/50 pt-6">
                 <dd className="display text-[clamp(1.7rem,3.3vw,2.7rem)] leading-none">{s.value}</dd>
-                <dt className="label mt-4 text-bronze-deep">{s.label}</dt>
+                <dt className="label mt-4 text-accent-deep">{s.label}</dt>
                 {s.note && <p className="mt-2 text-[0.78rem] text-ink-muted/80">{s.note}</p>}
               </div>
             </Reveal>
@@ -78,7 +78,7 @@ export default function ParkwayMarket() {
               </Reveal>
               <Reveal delay={0.1} className="md:col-span-5">
                 <div className={i % 2 === 1 ? 'md:pr-[8%]' : 'md:pl-[8%]'}>
-                  <span className="numeral-outline block text-[2.6rem] text-bronze">{note.index}</span>
+                  <span className="numeral-outline block text-[2.6rem] text-accent">{note.index}</span>
                   <h3 className="display mt-5 text-[clamp(1.5rem,2.6vw,2.2rem)] leading-[1.1]">
                     {note.title}
                   </h3>

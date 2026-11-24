@@ -50,18 +50,24 @@ npm run build && npm start
 
 ## Design direction
 
-**Warm architectural editorial.** The existing site is achromatic — black, white and grey,
-set in Arial with Times accents. That restraint is kept, but warmed and given structure:
+**Monochrome, architectural, typographic.** The existing site is achromatic — black,
+white and grey — and the revamp stays there, but rebuilds the structure and the type:
 
-- **Ground**: `#17120D`, a charcoal with a brown cast, rather than pure black.
-- **Paper**: `#F1EBE1` limestone, replacing flat white.
-- **Accent**: `#B07C40` weathered bronze — used for eyebrows, rules, outlined section
-  numerals, primary buttons and active states. It is the one chromatic note in the system.
-- **Type**: Instrument Serif for display (a high-contrast serif that reads as an evolution of the
-  site's existing Times accents) against Inter Tight for body and tracked-out uppercase labels.
-- **Layout**: a 12-column editorial grid used asymmetrically — sticky left rails against long
-  right-hand columns, offset image/text pairs, full-bleed dark interludes between paper sections.
-  No repeated card grid.
+- **Ground**: `#0A0A0A`, matching the black of the wordmark itself.
+- **Paper**: `#FAFAFA`, a hair off pure white so large fields do not glare.
+- **Neutrals**: `#6E6E6E` — the grey already used on the live site — for eyebrows,
+  secondary labels and rules, with `#C8C8C8` as its counterpart on dark grounds.
+- **No accent colour.** Hierarchy is carried by weight, scale, rule and tone alone.
+- **Type**: Archivo for display — a heavy, tightly-fitted neo-grotesque chosen because
+  the Rush Creek wordmark is drawn in exactly that register (high x-height, square
+  terminals, closed apertures, very tight fit). Inter Tight carries body copy and the
+  tracked-out micro labels. Emphasis inside headings drops to a lighter italic.
+- **Imagery**: the hero film is graded to black and white so it reads as tone behind the
+  type; project photography and renderings stay in full colour, since they are the
+  product being sold.
+- **Layout**: a 12-column editorial grid used asymmetrically — statement opposite lede,
+  rule-separated fact strips, full-bleed plates between sections, and dark interludes
+  between paper ones. No repeated card grid.
 
 ## Brand preservation
 

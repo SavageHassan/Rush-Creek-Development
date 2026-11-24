@@ -43,56 +43,83 @@ export default function HomePage() {
 
       {/* Introduction */}
       <section className="bg-paper py-24 md:py-32">
-        <div className="shell grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <SectionHead index="01" label="The firm" />
-            <Reveal delay={0.15}>
-              <dl className="mt-12 space-y-7">
-                {[
-                  { k: 'Discipline', v: 'Boutique real estate development' },
-                  { k: 'Focus', v: 'Challenging and historic sites across the Midwest' },
-                  { k: 'Scope', v: 'Capital raising, development, strategic asset sales' },
-                ].map((row) => (
-                  <div key={row.k} className="border-t border-ink/12 pt-4">
-                    <dt className="label text-bronze-deep">{row.k}</dt>
-                    <dd className="mt-2 max-w-[26ch] text-[0.95rem] leading-relaxed text-ink/70">
-                      {row.v}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
+        <div className="shell">
+          <SectionHead index="01" label="The firm" />
+
+          <div className="mt-12 grid gap-y-12 md:grid-cols-12 md:gap-x-10">
+            {/* Statement */}
+            <div className="md:col-span-7">
+              <h2 className="display text-[clamp(1.9rem,4vw,3.4rem)] leading-[1.04]">
+                <RevealLines
+                  lines={[
+                    <span key="l1">Unmatched</span>,
+                    <span key="l2">expertise and</span>,
+                    <span key="l3">execution.</span>,
+                  ]}
+                />
+              </h2>
+            </div>
+
+            {/* Lede sits opposite the statement, not beneath it */}
+            <div className="md:col-span-5 md:pt-3">
+              <Reveal delay={0.1} className="prose-editorial text-[1.02rem] leading-[1.8] text-ink/75">
+                <>
+                  <p>
+                    At Rush Creek we create lasting value for our investors by building projects
+                    that drive growth and opportunity. Our disciplined approach &mdash; spanning
+                    capital raising, development and strategic asset sales &mdash; lets us navigate
+                    complex markets.
+                  </p>
+                  <p>
+                    With a proven track record, strategic partnerships and a data-driven strategy, we
+                    deploy capital in dynamic sectors positioned for long-term success, ensuring our
+                    investors&rsquo; capital is both protected and maximised.
+                  </p>
+                </>
+              </Reveal>
+              <Reveal delay={0.18}>
+                <Link href="/firm" className="label link-underline mt-8 inline-block">
+                  More about the firm
+                </Link>
+              </Reveal>
+            </div>
           </div>
-          <div className="md:col-span-8 md:pl-[6%]">
-            <h2 className="display text-[clamp(1.75rem,3.4vw,2.8rem)] leading-[1.06]">
-              <RevealLines
-                lines={[
-                  'Unmatched expertise',
-                  <span key="l1">
-                    and <em className="italic">execution.</em>
-                  </span>,
-                ]}
-              />
-            </h2>
-            <Reveal delay={0.1} className="prose-editorial mt-10 max-w-2xl text-[1.0625rem] leading-[1.75] text-ink/75">
-              <p>
-                At Rush Creek we create lasting value for our investors by building projects that drive
-                growth and opportunity. Our disciplined approach — spanning capital raising, development
-                and strategic asset sales — lets us navigate complex markets and create value for the
-                people who invest alongside us.
-              </p>
-              <p>
-                With a proven track record, strategic partnerships and a data-driven strategy, we deploy
-                capital in dynamic sectors positioned for long-term success, ensuring our investors&rsquo;
-                capital is both protected and maximised.
-              </p>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <Link href="/firm" className="label link-underline mt-10 inline-block">
-                Learn more about the firm
-              </Link>
-            </Reveal>
-          </div>
+
+          {/* Full-bleed plate carries the section instead of white space */}
+          <Reveal delay={0.1} className="mt-16">
+            <ParallaxImage
+              src="/images/context/east-flats.jpg"
+              alt="A completed Rush Creek multifamily development at dusk"
+              className="aspect-[21/9] w-full"
+              sizes="100vw"
+              amount={9}
+            />
+          </Reveal>
+
+          {/* The three facts as a rule-separated strip, read left to right */}
+          <dl className="mt-14 grid gap-px border border-ink/12 bg-ink/12 sm:grid-cols-3">
+            {[
+              {
+                k: 'Discipline',
+                v: 'A boutique real estate development firm, delivering for investors and the communities we build in.',
+              },
+              {
+                k: 'Focus',
+                v: 'Challenging and historic sites throughout the Midwest, transformed into thriving developments.',
+              },
+              {
+                k: 'Scope',
+                v: 'Capital raising, development and strategic asset sales, managed through to exit.',
+              },
+            ].map((row, i) => (
+              <Reveal key={row.k} delay={i * 0.08}>
+                <div className="h-full bg-paper p-7 md:p-9">
+                  <p className="label text-accent-deep">{row.k}</p>
+                  <p className="mt-4 text-[0.98rem] leading-[1.7] text-ink/75">{row.v}</p>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -105,7 +132,7 @@ export default function HomePage() {
               <RevealLines
                 lines={[
                   <span key="l1">A record built on</span>,
-                  <em key="l2" className="italic text-bronze-light">
+                  <em key="l2" className="italic text-accent-light">
                     delivery, not projection.
                   </em>,
                 ]}
@@ -121,7 +148,7 @@ export default function HomePage() {
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link
                   href="/projects"
-                  className="label border border-bronze px-7 py-4 text-bronze-light transition-colors duration-500 hover:bg-bronze hover:text-ink-deep"
+                  className="label border border-white/35 px-7 py-4 text-paper transition-colors duration-500 hover:bg-paper hover:text-ink"
                 >
                   See the portfolio
                 </Link>
@@ -136,11 +163,11 @@ export default function HomePage() {
             <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
               {trackRecord.map((stat, i) => (
                 <Reveal key={stat.label} delay={i * 0.08}>
-                  <div className="border-t border-bronze/45 py-8">
+                  <div className="border-t border-accent/45 py-8">
                     <dd className="display text-[clamp(2.4rem,4.6vw,3.9rem)] leading-none">
                       <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                     </dd>
-                    <dt className="label mt-4 text-bronze-light/85">{stat.label}</dt>
+                    <dt className="label mt-4 text-accent-light/85">{stat.label}</dt>
                   </div>
                 </Reveal>
               ))}
@@ -172,12 +199,12 @@ export default function HomePage() {
 
           <div className="md:col-span-5 md:-ml-[8%] md:pt-10">
             <Reveal>
-              <div className="relative bg-paper p-0 md:border md:border-bronze/35 md:bg-paper md:p-12 md:shadow-[0_40px_90px_-60px_rgba(23,18,13,0.55)]">
-                <p className="label text-bronze-deep">Delivering for investors</p>
+              <div className="relative bg-paper p-0 md:border md:border-accent/35 md:bg-paper md:p-12 md:shadow-[0_40px_90px_-60px_rgba(23,18,13,0.55)]">
+                <p className="label text-accent-deep">Delivering for investors</p>
                 <p className="display mt-8 text-[clamp(2.8rem,6vw,4.8rem)] leading-none">
                   <Counter value={20} prefix="$" suffix="m" />
                 </p>
-                <p className="display mt-2 text-[1.2rem] italic text-bronze-deep">yield in 19 months</p>
+                <p className="display mt-2 text-[1.2rem] italic text-accent-deep">yield in 19 months</p>
                 <p className="mt-8 text-[1rem] leading-[1.75] text-ink/75">
                   Our last project in Maple Grove, Minnesota went from green dirt to 98.4% occupancy,
                   yielding our investors $20,000,000 in 19 months.
@@ -258,7 +285,7 @@ export default function HomePage() {
               {capabilities.map((item, i) => (
                 <Reveal as="li" key={item.index} delay={i * 0.05} className="border-t border-white/15 py-9">
                   <div className="flex gap-6 md:gap-10">
-                    <span className="numeral-outline shrink-0 text-[2.5rem] text-bronze-light">{item.index}</span>
+                    <span className="numeral-outline shrink-0 text-[2.5rem] text-accent-light">{item.index}</span>
                     <div>
                       <h3 className="display text-[1.45rem] leading-tight md:text-[1.8rem]">{item.title}</h3>
                       <p className="mt-4 max-w-2xl text-[0.98rem] leading-[1.75] text-paper/65">{item.body}</p>
@@ -307,13 +334,13 @@ export default function HomePage() {
                 href={site.bookingUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="label border border-bronze bg-bronze px-9 py-5 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-deep"
+                className="label border border-ink bg-ink text-paper transition-colors duration-500 hover:bg-transparent hover:text-ink px-9 py-5"
               >
                 Book a call
               </a>
               <Link
                 href="/contact"
-                className="label border border-ink/30 px-9 py-5 transition-colors duration-500 hover:border-bronze hover:text-bronze-deep"
+                className="label border border-ink/25 px-9 py-5 transition-colors duration-500 hover:border-ink"
               >
                 Investor enquiries
               </Link>
@@ -332,13 +359,13 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="mt-5 flex flex-col gap-3 border-t border-bronze/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-5 flex flex-col gap-3 border-t border-accent/40 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <p className="label text-ink-muted">
                 The Parkway Neighborhood, Dayton, Minnesota &mdash; rendering
               </p>
               <Link
                 href="/projects/parkway-neighborhood"
-                className="label link-underline text-bronze-deep"
+                className="label link-underline text-accent-deep"
               >
                 View the project
               </Link>

@@ -60,9 +60,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <dl className="grid gap-x-10 gap-y-12 sm:grid-cols-3">
             {project.figures.map((f, i) => (
               <Reveal key={f.label} delay={i * 0.08}>
-                <div className="border-t border-bronze/50 pt-6">
+                <div className="border-t border-accent/50 pt-6">
                   <dd className="display text-[clamp(2.3rem,4.6vw,3.8rem)] leading-none">{f.value}</dd>
-                  <dt className="label mt-5 text-bronze-deep">{f.label}</dt>
+                  <dt className="label mt-5 text-accent-deep">{f.label}</dt>
                   {f.note && <p className="mt-2 text-[0.78rem] text-ink-muted/80">{f.note}</p>}
                 </div>
               </Reveal>
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {project.specs.map((s, i) => (
               <Reveal key={s.label} delay={Math.min(i * 0.04, 0.3)}>
                 <div className="grid grid-cols-1 gap-2 border-t border-white/14 py-5 sm:grid-cols-12 sm:gap-6">
-                  <dt className="label pt-1 text-bronze-light/85 sm:col-span-4">{s.label}</dt>
+                  <dt className="label pt-1 text-accent-light/85 sm:col-span-4">{s.label}</dt>
                   <dd className="text-[1rem] leading-relaxed text-paper/90 sm:col-span-8">
                     {s.value}
                     {s.note && (
@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {project.timeline.map((t, i) => (
                 <Reveal as="li" key={t.date} delay={i * 0.06}>
                   <div className="grid grid-cols-1 gap-2 border-t border-ink/14 py-7 sm:grid-cols-12 sm:gap-6">
-                    <span className="label pt-1 text-bronze-deep sm:col-span-4">{t.date}</span>
+                    <span className="label pt-1 text-accent-deep sm:col-span-4">{t.date}</span>
                     <span className="display text-[1.2rem] leading-snug sm:col-span-8 md:text-[1.3rem]">
                       {t.event}
                     </span>
@@ -205,7 +205,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/contact"
-                  className="label border border-bronze bg-bronze px-8 py-4 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-light"
+                  className="label border border-paper bg-paper text-ink transition-colors duration-500 hover:bg-transparent hover:text-paper px-8 py-4"
                 >
                   Investor questionnaire
                 </Link>
@@ -221,13 +221,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </div>
 
             <div className="md:col-span-6 md:col-start-7">
-              <p className="label text-bronze-light">Offering materials</p>
+              <p className="label text-accent-light">Offering materials</p>
               <ul className="mt-8">
                 {project.documents.map((d, i) => (
                   <Reveal as="li" key={d} delay={i * 0.05}>
                     <div className="flex items-baseline justify-between gap-6 border-t border-white/14 py-5">
                       <span className="text-[1rem] text-paper/85">{d}</span>
-                      <span className="label shrink-0 text-bronze-light/70">On request</span>
+                      <span className="label shrink-0 text-accent-light/70">On request</span>
                     </div>
                   </Reveal>
                 ))}
@@ -261,7 +261,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </div>
                   <div className="mt-5 flex items-baseline justify-between gap-6">
                     <h3 className="display text-[1.8rem] leading-tight md:text-[1.85rem]">{p.name}</h3>
-                    <span className="label shrink-0 text-bronze-deep">{p.year}</span>
+                    <span className="label shrink-0 text-accent-deep">{p.year}</span>
                   </div>
                   <p className="mt-2 text-[0.95rem] text-ink-muted">{p.location}</p>
                 </Link>

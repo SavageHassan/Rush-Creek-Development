@@ -67,15 +67,15 @@ export default function ProjectVideo({
           aria-label={playing ? 'Pause film' : 'Play film'}
           className="group absolute inset-0 flex items-end justify-start p-6 md:p-8"
         >
-          <span className="label flex items-center gap-3 border border-bronze/60 bg-ink-deep/55 px-5 py-3 text-paper backdrop-blur-sm transition-colors duration-500 group-hover:bg-bronze group-hover:text-ink-deep">
+          <span className="label flex items-center gap-3 border border-white/45 bg-ink/60 px-5 py-3 text-paper backdrop-blur-sm transition-colors duration-500 group-hover:bg-paper group-hover:text-ink">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-bronze-light group-hover:bg-ink-deep" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper group-hover:bg-ink" />
             </span>
             {playing ? 'Pause' : 'Play'} &mdash; silent film
           </span>
         </button>
       </div>
-      <p className="label mt-4 text-bronze-deep">{caption}</p>
+      <p className="label mt-4 text-accent-deep">{caption}</p>
     </motion.div>
   );
 }

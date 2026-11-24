@@ -65,7 +65,7 @@ export default function PartnerGrid({ tone = 'dark' }: { tone?: 'dark' | 'light'
           tone === 'dark' ? 'bg-paper-deep/70' : 'bg-ink-soft'
         }`}
       >
-        <p className="label text-bronze-deep">Collaboration</p>
+        <p className="label text-accent-deep">Collaboration</p>
         <p className={`mx-auto mt-4 max-w-[24ch] text-[0.88rem] leading-relaxed ${subColor}`}>
           The strongest projects come from strong collaboration with public and private partners.
         </p>

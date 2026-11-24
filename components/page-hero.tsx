@@ -27,11 +27,13 @@ export default function PageHero({
     >
       <div className="absolute inset-0">
         <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/88" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink-deep/80 via-ink-deep/40 to-ink-deep/92" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-deep/80 via-ink-deep/25 to-transparent" />
+        <div className="grain absolute inset-0" />
       </div>
 
       <div className="shell relative pb-14 pt-36 md:pb-16">
-        <p className="label text-bronze-light">{label}</p>
+        <p className="label text-accent-light">{label}</p>
         <h1 className="display mt-7 max-w-[16ch] text-[clamp(2.3rem,6vw,5.2rem)]">
           <RevealLines lines={lines} />
         </h1>
@@ -42,10 +44,10 @@ export default function PageHero({
         )}
         {meta && (
           <Reveal delay={0.35}>
-            <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-7 border-t border-bronze/45 pt-7 sm:grid-cols-4">
+            <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-7 border-t border-accent/45 pt-7 sm:grid-cols-4">
               {meta.map((m) => (
                 <div key={m.label}>
-                  <dt className="label text-bronze-light/85">{m.label}</dt>
+                  <dt className="label text-accent-light/85">{m.label}</dt>
                   <dd className="mt-3 text-[0.98rem] text-paper/90">{m.value}</dd>
                 </div>
               ))}

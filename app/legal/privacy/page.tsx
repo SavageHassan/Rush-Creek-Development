@@ -9,7 +9,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      lines={[<span key="l1">Privacy</span>, <em key="b" className="italic">Policy</em>]}
+      lines={[<span key="l1">Privacy</span>, <span key="l2">Policy</span>]}
       intro="At Rush Creek Developments (“Company,” “we,” “our,” or “us”), your privacy is very important to us. This Privacy Policy describes how and why we and our subsidiaries, sister companies, and affiliates collect, use, store, disclose, and share your personal information whenever you interact with us — whether in person, by phone, or through our website and any related online platforms."
       effective="Effective date: 1 January 2025"
       sections={[

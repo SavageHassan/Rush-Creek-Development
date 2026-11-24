@@ -37,14 +37,14 @@ export default function SiteFooter() {
               href={site.bookingUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="label mt-7 inline-block border border-bronze bg-bronze px-7 py-3.5 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-light"
+              className="label mt-7 inline-block border border-paper bg-paper text-ink transition-colors duration-500 hover:bg-transparent hover:text-paper px-7 py-3.5"
             >
               Book a call
             </a>
           </div>
 
           <nav className="md:col-span-2 md:col-start-7">
-            <p className="label text-bronze-light">Company</p>
+            <p className="label text-accent-light">Company</p>
             <ul className="mt-5 space-y-2.5">
               {company.map((item) => (
                 <li key={item.href}>
@@ -57,7 +57,7 @@ export default function SiteFooter() {
           </nav>
 
           <nav className="md:col-span-2">
-            <p className="label text-bronze-light">Projects</p>
+            <p className="label text-accent-light">Projects</p>
             <ul className="mt-5 space-y-2.5">
               {projects.map((p) => (
                 <li key={p.slug}>
@@ -73,7 +73,7 @@ export default function SiteFooter() {
           </nav>
 
           <nav className="md:col-span-2">
-            <p className="label text-bronze-light">Legal</p>
+            <p className="label text-accent-light">Legal</p>
             <ul className="mt-5 space-y-2.5">
               {legal.map((item) => (
                 <li key={item.href}>
@@ -100,10 +100,10 @@ export default function SiteFooter() {
         <div className="border-t border-white/12 py-5">
           <details className="group">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 [&::-webkit-details-marker]:hidden">
-              <span className="label text-bronze-light/80">
+              <span className="label text-accent-light/80">
                 Important disclosures &mdash; securities, Regulation A &amp; forward-looking statements
               </span>
-              <span className="label shrink-0 text-paper/45 transition-colors group-hover:text-bronze-light">
+              <span className="label shrink-0 text-paper/45 transition-colors group-hover:text-accent-light">
                 <span className="group-open:hidden">Read</span>
                 <span className="hidden group-open:inline">Close</span>
               </span>

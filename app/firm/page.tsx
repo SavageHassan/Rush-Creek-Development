@@ -20,7 +20,7 @@ export default function FirmPage() {
     <>
       <PageHero
         label="The firm — our mission"
-        lines={[<span key="l1">Build a legacy of</span>, <em key="b" className="italic">beauty and resilience</em>]}
+        lines={[<span key="l1">Build a legacy of</span>, <span key="l2">beauty and resilience</span>]}
         intro="We solve the toughest real estate challenges by transforming outdated and underutilised spaces into beautiful, thriving developments. Every property has the potential to be reimagined into something exceptional."
         image="/images/context/east-flats.jpg"
         imageAlt="Multifamily development at dusk"
@@ -131,7 +131,7 @@ export default function FirmPage() {
                 </div>
                 <div className="mt-6 border-t border-ink/14 pt-5">
                   <h3 className="display text-[1.3rem] leading-tight">{member.name}</h3>
-                  <p className="label mt-3 text-bronze-deep">{member.role}</p>
+                  <p className="label mt-3 text-accent-deep">{member.role}</p>
                   <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/70">{member.bio}</p>
                 </div>
               </Reveal>
@@ -164,7 +164,7 @@ export default function FirmPage() {
                     className="object-cover"
                   />
                 </div>
-                <span className="numeral-outline mt-6 block text-[2rem] text-bronze">{s.index}</span>
+                <span className="numeral-outline mt-6 block text-[2rem] text-accent">{s.index}</span>
                 <h3 className="display mt-3 text-[1.2rem] leading-tight md:text-[1.2rem]">{s.title}</h3>
                 <p className="mt-4 text-[0.95rem] leading-[1.75] text-ink/70">{s.body}</p>
               </Reveal>
@@ -186,7 +186,7 @@ export default function FirmPage() {
           <ul className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-3">
             {press.map((item, i) => (
               <Reveal as="li" key={item.name} delay={i * 0.08}>
-                <div className="flex aspect-[16/9] w-full items-center justify-center border border-ink/12 bg-paper-deep/60 p-8 transition-colors duration-500 hover:border-bronze/50">
+                <div className="flex aspect-[16/9] w-full items-center justify-center border border-ink/12 bg-paper-deep/60 p-8 transition-colors duration-500 hover:border-accent/50">
                   <div className="relative h-10 w-full">
                     <Image
                       src={item.logo}
@@ -221,11 +221,11 @@ export default function FirmPage() {
               href={site.bookingUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="label border border-bronze bg-bronze px-9 py-5 text-ink-deep transition-colors duration-500 hover:bg-transparent hover:text-bronze-light"
+              className="label border border-paper bg-paper text-ink transition-colors duration-500 hover:bg-transparent hover:text-paper px-9 py-5"
             >
               Book a call
             </a>
-            <Link href="/contact" className="label border border-white/25 px-9 py-5 transition-colors duration-500 hover:border-bronze hover:text-bronze-light">
+            <Link href="/contact" className="label border border-white/25 px-9 py-5 transition-colors duration-500 hover:border-white">
               Contact the team
             </Link>
           </div>

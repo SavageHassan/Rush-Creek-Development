@@ -6,26 +6,26 @@ const config: Config = {
     extend: {
       opacity: Object.fromEntries(Array.from({ length: 101 }, (_, i) => [String(i), String(i / 100)])),
       colors: {
-        /* Warm architectural ground — charcoal with a brown cast, not pure black. */
+        /* Monochrome ground, matching the wordmark's own black. */
         ink: {
-          DEFAULT: '#17120D',
-          soft: '#241C14',
-          deep: '#0E0A07',
-          muted: '#7C6E5E',
+          DEFAULT: '#0A0A0A',
+          soft: '#171717',
+          deep: '#000000',
+          muted: '#6E6E6E',
         },
-        /* Limestone paper. */
+        /* Paper — near-white, a hair off pure so large fields don't glare. */
         paper: {
-          DEFAULT: '#F1EBE1',
-          deep: '#E4DACA',
-          dim: '#D2C5B0',
+          DEFAULT: '#FAFAFA',
+          deep: '#F0F0F0',
+          dim: '#E0E0E0',
         },
-        /* Signature accent — weathered bronze. */
-        bronze: {
-          DEFAULT: '#B07C40',
-          light: '#C99A5E',
-          deep: '#8A5F2E',
+        /* Neutral accent: rules, eyebrows and secondary labels. */
+        accent: {
+          DEFAULT: '#8C8C8C',
+          light: '#C8C8C8',
+          deep: '#6E6E6E',
         },
-        clay: '#9A4A30',
+        clay: '#8A8A8A',
       },
       fontFamily: {
         display: ['var(--font-display)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
