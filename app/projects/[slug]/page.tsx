@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             {project.figures.map((f, i) => (
               <Reveal key={f.label} delay={i * 0.08}>
                 <div className="border-t border-bronze/50 pt-6">
-                  <dd className="display text-[clamp(2.8rem,6vw,5rem)] leading-none">{f.value}</dd>
+                  <dd className="display text-[clamp(2.3rem,4.6vw,3.8rem)] leading-none">{f.value}</dd>
                   <dt className="label mt-5 text-bronze-deep">{f.label}</dt>
                   {f.note && <p className="mt-2 text-[0.78rem] text-ink-muted/80">{f.note}</p>}
                 </div>
@@ -148,7 +148,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 <Reveal as="li" key={t.date} delay={i * 0.06}>
                   <div className="grid grid-cols-1 gap-2 border-t border-ink/14 py-7 sm:grid-cols-12 sm:gap-6">
                     <span className="label pt-1 text-bronze-deep sm:col-span-4">{t.date}</span>
-                    <span className="display text-[1.4rem] leading-snug sm:col-span-8 md:text-[1.75rem]">
+                    <span className="display text-[1.2rem] leading-snug sm:col-span-8 md:text-[1.3rem]">
                       {t.event}
                     </span>
                   </div>
@@ -195,7 +195,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="shell grid gap-12 md:grid-cols-12">
             <div className="md:col-span-5">
               <SectionHead index="05" label="The limited partnership offering" tone="light" />
-              <h2 className="display mt-8 text-[clamp(2rem,4vw,3.4rem)] leading-[1.06]">
+              <h2 className="display mt-8 text-[clamp(1.7rem,3.2vw,2.7rem)] leading-[1.06]">
                 First investor round <em className="italic">launches 2/26</em>
               </h2>
               <p className="mt-8 max-w-md text-[1rem] leading-[1.75] text-paper/70">
@@ -260,7 +260,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     />
                   </div>
                   <div className="mt-5 flex items-baseline justify-between gap-6">
-                    <h3 className="display text-[1.8rem] leading-tight md:text-[2.2rem]">{p.name}</h3>
+                    <h3 className="display text-[1.8rem] leading-tight md:text-[1.85rem]">{p.name}</h3>
                     <span className="label shrink-0 text-bronze-deep">{p.year}</span>
                   </div>
                   <p className="mt-2 text-[0.95rem] text-ink-muted">{p.location}</p>

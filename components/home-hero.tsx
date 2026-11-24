@@ -22,8 +22,6 @@ export default function HomeHero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const mediaY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
   const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '34%']);
-  const fade = useTransform(scrollYProgress, [0, 0.72], [1, 0]);
 
   useEffect(() => {
     const v = videoRef.current;
@@ -71,7 +69,7 @@ export default function HomeHero() {
       <div className="pointer-events-none absolute inset-[var(--shell-gutter)] hidden border border-bronze/25 lg:block" />
 
       {/* Content */}
-      <motion.div style={{ y: contentY, opacity: fade }} className="relative flex h-full flex-col">
+      <div className="relative flex h-full flex-col">
         <div className="shell flex flex-1 flex-col justify-center pb-36 pt-28 sm:pb-40">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -95,7 +93,7 @@ export default function HomeHero() {
             </span>
           </motion.div>
 
-          <h1 className="display mt-10 max-w-[13ch] text-[clamp(2.9rem,11vw,10rem)] leading-[0.9]">
+          <h1 className="display mt-10 max-w-[13ch] text-[clamp(2.5rem,7.6vw,6.6rem)] leading-[0.9]">
             {['Building', 'Legacy', 'Developments'].map((word, i) => (
               <span key={word} className="block overflow-hidden pb-[0.055em]">
                 <motion.span
@@ -147,7 +145,7 @@ export default function HomeHero() {
               <dl className="grid grid-cols-2 gap-x-8 gap-y-4 sm:flex sm:gap-12 lg:gap-16">
                 {rail.map((s) => (
                   <div key={s.label} className="flex items-baseline gap-3">
-                    <dd className="display text-[1.7rem] leading-none">{s.value}</dd>
+                    <dd className="display text-[1.45rem] leading-none">{s.value}</dd>
                     <dt className="label text-bronze-light/75">{s.label}</dt>
                   </div>
                 ))}
@@ -156,7 +154,7 @@ export default function HomeHero() {
             </div>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

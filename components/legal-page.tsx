@@ -21,7 +21,7 @@ export default function LegalPage({
       <section className="bg-ink pb-16 pt-36 text-paper md:pb-20 md:pt-44">
         <div className="shell">
           <p className="label text-bronze-light">Legal</p>
-          <h1 className="display mt-6 max-w-[16ch] text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.98]">
+          <h1 className="display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.2vw,4.2rem)] leading-[0.98]">
             <RevealLines lines={lines} />
           </h1>
           {intro && (
@@ -43,7 +43,7 @@ export default function LegalPage({
               <Reveal key={i} delay={0.03}>
                 <div className="border-t border-ink/14 py-9 first:border-t-0 first:pt-0">
                   {section.heading && (
-                    <h2 className="display text-[1.5rem] leading-snug md:text-[1.9rem]">
+                    <h2 className="display text-[1.3rem] leading-snug md:text-[1.2rem]">
                       {section.heading}
                     </h2>
                   )}

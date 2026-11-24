@@ -22,7 +22,7 @@ export default function SectionHead({
       <div className="flex items-start gap-6">
         {index && (
           <span
-            className={`numeral-outline shrink-0 text-[clamp(3rem,6vw,5rem)] ${
+            className={`numeral-outline shrink-0 text-[clamp(2.4rem,4.6vw,3.8rem)] ${
               tone === 'dark' ? 'text-bronze' : 'text-bronze-light'
             }`}
             aria-hidden
@@ -38,7 +38,7 @@ export default function SectionHead({
         </div>
       </div>
       {title && (
-        <h2 className={`display mt-8 text-[clamp(2.2rem,5vw,4.4rem)] ${muted ? '' : ''}`}>{title}</h2>
+        <h2 className={`display mt-8 text-[clamp(1.9rem,3.9vw,3.3rem)] ${muted ? '' : ''}`}>{title}</h2>
       )}
     </Reveal>
   );

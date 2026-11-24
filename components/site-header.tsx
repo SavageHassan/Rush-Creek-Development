@@ -134,7 +134,7 @@ export default function SiteHeader() {
                         href={item.href}
                         className="flex items-baseline justify-between py-5"
                       >
-                        <span className="display text-[2.4rem] leading-none">{item.label}</span>
+                        <span className="display text-[2rem] leading-none">{item.label}</span>
                         <span className="label text-bronze-light">0{i + 1}</span>
                       </Link>
                     </motion.div>

@@ -32,7 +32,7 @@ export default function PageHero({
 
       <div className="shell relative pb-14 pt-36 md:pb-16">
         <p className="label text-bronze-light">{label}</p>
-        <h1 className="display mt-6 max-w-[16ch] text-[clamp(2.6rem,8vw,7.5rem)]">
+        <h1 className="display mt-7 max-w-[16ch] text-[clamp(2.3rem,6vw,5.2rem)]">
           <RevealLines lines={lines} />
         </h1>
         {intro && (

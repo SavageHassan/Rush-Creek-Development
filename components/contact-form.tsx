@@ -88,7 +88,7 @@ export default function ContactForm() {
             className="border-t border-ink/15 pt-10"
           >
             <p className="label text-bronze-deep">Thank you</p>
-            <h3 className="display mt-6 text-[clamp(1.9rem,3.4vw,2.8rem)] leading-tight">
+            <h3 className="display mt-6 text-[clamp(1.6rem,2.9vw,2.4rem)] leading-tight">
               Your enquiry has been <em className="italic">received</em>
             </h3>
             <p className="mt-6 max-w-md text-[1rem] leading-[1.75] text-ink/70">

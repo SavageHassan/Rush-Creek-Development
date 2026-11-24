@@ -55,7 +55,7 @@ export default function ProjectIndex({ items }: { items: Project[] }) {
               <div className="flex flex-col gap-5 lg:w-[62%] lg:flex-row lg:items-baseline lg:gap-10">
                 <span className="numeral-outline w-16 shrink-0 text-[2.75rem] text-bronze">{p.index}</span>
                 <div className="flex-1">
-                  <h3 className="display text-[2.1rem] leading-[1.05] transition-transform duration-700 ease-editorial group-hover:translate-x-2 sm:text-[2.8rem] lg:text-[3.4rem]">
+                  <h3 className="display text-[1.8rem] leading-[1.05] transition-transform duration-700 ease-editorial group-hover:translate-x-2 sm:text-[2.3rem] lg:text-[2.3rem]">
                     {p.name}
                   </h3>
                   <p className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-ink/70">

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --font-display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-sans: 'Inter Tight', Helvetica, Arial, sans-serif;
   --shell-gutter: clamp(1.25rem, 4vw, 5rem);
 }
@@ -30,7 +30,8 @@
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
+    font-weight: 700;
+    letter-spacing: -0.035em;
   }
 
   input, select, textarea, button {
@@ -62,11 +63,22 @@
     font-weight: 500;
   }
 
+  /* Set in the wordmark's register: heavy, tight, slightly condensed. */
   .display {
     font-family: var(--font-display);
-    font-weight: 400;
-    line-height: 0.95;
-    letter-spacing: -0.025em;
+    font-weight: 700;
+    font-stretch: 94%;
+    line-height: 0.96;
+    letter-spacing: -0.038em;
+  }
+
+  /* Emphasis inside display type: lighter and italic, so the accent reads as
+     a shift in voice rather than more weight. */
+  .display em,
+  .display i {
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.03em;
   }
 
   .rule {
@@ -124,7 +136,10 @@ html.lenis, html.lenis body { height: auto; }
   /* Oversized outlined numeral used as a section marker. */
   .numeral-outline {
     font-family: var(--font-display);
-    -webkit-text-stroke: 1px currentColor;
+    font-weight: 700;
+    font-stretch: 94%;
+    letter-spacing: -0.04em;
+    -webkit-text-stroke: 1.25px currentColor;
     color: transparent;
     line-height: 0.8;
   }

@@ -28,7 +28,7 @@ const config: Config = {
         clay: '#9A4A30',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'Times New Roman', 'serif'],
+        display: ['var(--font-display)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
         sans: ['var(--font-sans)', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
       },
       letterSpacing: {

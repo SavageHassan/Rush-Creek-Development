@@ -64,7 +64,7 @@ export default function HomePage() {
             </Reveal>
           </div>
           <div className="md:col-span-8 md:pl-[6%]">
-            <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)] leading-[1.06]">
+            <h2 className="display text-[clamp(1.75rem,3.4vw,2.8rem)] leading-[1.06]">
               <RevealLines
                 lines={[
                   'Unmatched expertise',
@@ -101,7 +101,7 @@ export default function HomePage() {
         <div className="shell grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
             <SectionHead index="02" label="Track record" tone="light" />
-            <h2 className="display mt-8 text-[clamp(2rem,3.8vw,3.2rem)] leading-[1.06]">
+            <h2 className="display mt-8 text-[clamp(1.7rem,3.1vw,2.6rem)] leading-[1.06]">
               <RevealLines
                 lines={[
                   <span key="l1">A record built on</span>,
@@ -137,7 +137,7 @@ export default function HomePage() {
               {trackRecord.map((stat, i) => (
                 <Reveal key={stat.label} delay={i * 0.08}>
                   <div className="border-t border-bronze/45 py-8">
-                    <dd className="display text-[clamp(3rem,6vw,5.2rem)] leading-none">
+                    <dd className="display text-[clamp(2.4rem,4.6vw,3.9rem)] leading-none">
                       <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                     </dd>
                     <dt className="label mt-4 text-bronze-light/85">{stat.label}</dt>
@@ -174,10 +174,10 @@ export default function HomePage() {
             <Reveal>
               <div className="relative bg-paper p-0 md:border md:border-bronze/35 md:bg-paper md:p-12 md:shadow-[0_40px_90px_-60px_rgba(23,18,13,0.55)]">
                 <p className="label text-bronze-deep">Delivering for investors</p>
-                <p className="display mt-8 text-[clamp(3.5rem,8vw,6.5rem)] leading-none">
+                <p className="display mt-8 text-[clamp(2.8rem,6vw,4.8rem)] leading-none">
                   <Counter value={20} prefix="$" suffix="m" />
                 </p>
-                <p className="display mt-2 text-[1.6rem] italic text-bronze-deep">yield in 19 months</p>
+                <p className="display mt-2 text-[1.2rem] italic text-bronze-deep">yield in 19 months</p>
                 <p className="mt-8 text-[1rem] leading-[1.75] text-ink/75">
                   Our last project in Maple Grove, Minnesota went from green dirt to 98.4% occupancy,
                   yielding our investors $20,000,000 in 19 months.
@@ -230,7 +230,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-ink/55" />
           <div className="shell absolute inset-x-0 bottom-0 pb-10">
-            <h2 className="display max-w-[20ch] text-[clamp(2rem,5vw,4.2rem)]">
+            <h2 className="display max-w-[20ch] text-[clamp(1.8rem,3.8vw,3.2rem)]">
               <RevealLines
                 lines={['Turning vision into', <em key="l" className="italic">lasting value</em>]}
               />
@@ -260,7 +260,7 @@ export default function HomePage() {
                   <div className="flex gap-6 md:gap-10">
                     <span className="numeral-outline shrink-0 text-[2.5rem] text-bronze-light">{item.index}</span>
                     <div>
-                      <h3 className="display text-[1.7rem] leading-tight md:text-[2.1rem]">{item.title}</h3>
+                      <h3 className="display text-[1.45rem] leading-tight md:text-[1.8rem]">{item.title}</h3>
                       <p className="mt-4 max-w-2xl text-[0.98rem] leading-[1.75] text-paper/65">{item.body}</p>
                     </div>
                   </div>
@@ -285,7 +285,7 @@ export default function HomePage() {
       <section className="relative bg-paper-deep pb-24 pt-10 md:pb-32">
         <div className="shell grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <h2 className="display text-[clamp(2.4rem,6.5vw,5.6rem)] leading-[1.02]">
+            <h2 className="display text-[clamp(2.1rem,5vw,4.2rem)] leading-[1.02]">
               <RevealLines
                 lines={[
                   <span key="l1">Legacy isn&rsquo;t found.</span>,

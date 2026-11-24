@@ -34,7 +34,7 @@ export default function FirmPage() {
             <SectionHead index="01" label="Our mission" />
           </div>
           <div className="md:col-span-8 md:pl-[6%]">
-            <h2 className="display text-[clamp(1.9rem,3.8vw,3.2rem)] leading-[1.08]">
+            <h2 className="display text-[clamp(1.65rem,3.1vw,2.6rem)] leading-[1.08]">
               <RevealLines
                 lines={[
                   'We don’t just build.',
@@ -75,7 +75,7 @@ export default function FirmPage() {
           </Reveal>
           <div className="md:col-span-6 md:pl-[6%]">
             <SectionHead index="02" label="Our approach" tone="light" />
-            <h2 className="display mt-8 text-[clamp(1.9rem,3.6vw,3rem)] leading-[1.08]">
+            <h2 className="display mt-8 text-[clamp(1.6rem,3vw,2.5rem)] leading-[1.08]">
               Data-driven insights for <em className="italic">strategic investments</em>
             </h2>
             <Reveal delay={0.1} className="prose-editorial mt-8 text-[1rem] leading-[1.8] text-paper/70">
@@ -130,7 +130,7 @@ export default function FirmPage() {
                   />
                 </div>
                 <div className="mt-6 border-t border-ink/14 pt-5">
-                  <h3 className="display text-[1.75rem] leading-tight">{member.name}</h3>
+                  <h3 className="display text-[1.3rem] leading-tight">{member.name}</h3>
                   <p className="label mt-3 text-bronze-deep">{member.role}</p>
                   <p className="mt-4 text-[0.95rem] leading-relaxed text-ink/70">{member.bio}</p>
                 </div>
@@ -164,8 +164,8 @@ export default function FirmPage() {
                     className="object-cover"
                   />
                 </div>
-                <span className="numeral-outline mt-6 block text-[2.4rem] text-bronze">{s.index}</span>
-                <h3 className="display mt-3 text-[1.6rem] leading-tight md:text-[1.9rem]">{s.title}</h3>
+                <span className="numeral-outline mt-6 block text-[2rem] text-bronze">{s.index}</span>
+                <h3 className="display mt-3 text-[1.2rem] leading-tight md:text-[1.2rem]">{s.title}</h3>
                 <p className="mt-4 text-[0.95rem] leading-[1.75] text-ink/70">{s.body}</p>
               </Reveal>
             ))}
@@ -213,7 +213,7 @@ export default function FirmPage() {
       {/* CTA */}
       <section className="bg-ink py-20 text-paper md:py-24">
         <div className="shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <h2 className="display max-w-[18ch] text-[clamp(2rem,4.5vw,3.6rem)] leading-[1.06]">
+          <h2 className="display max-w-[18ch] text-[clamp(1.75rem,3.5vw,2.8rem)] leading-[1.06]">
             Let&rsquo;s build something <em className="italic">that lasts</em>
           </h2>
           <div className="flex flex-wrap gap-4">

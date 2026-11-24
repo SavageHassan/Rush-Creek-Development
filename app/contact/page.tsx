@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="shell grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <p className="label text-bronze-light">Contact</p>
-            <h1 className="display mt-6 text-[clamp(2.8rem,8vw,7rem)] leading-[0.95]">
+            <h1 className="display mt-7 text-[clamp(2.4rem,6.2vw,5rem)] leading-[0.95]">
               <RevealLines lines={[<span key="l1">Get in</span>, <em key="b" className="italic">touch</em>]} />
             </h1>
             <Reveal delay={0.25}>
@@ -34,7 +34,7 @@ export default function ContactPage() {
             <Reveal delay={0.2}>
               <div className="border-t border-bronze/45 pt-7">
                 <p className="label text-bronze-light">Prefer to talk?</p>
-                <p className="display mt-5 text-[1.6rem] leading-snug">
+                <p className="display mt-5 text-[1.2rem] leading-snug">
                   Book an introductory meeting directly with the team.
                 </p>
                 <a

@@ -59,7 +59,7 @@ export default function ProjectsPage() {
       <section className="bg-ink py-20 text-paper md:py-24">
         <div className="shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
-            <h2 className="display max-w-[18ch] text-[clamp(2rem,4.5vw,3.6rem)] leading-[1.06]">
+            <h2 className="display max-w-[18ch] text-[clamp(1.75rem,3.5vw,2.8rem)] leading-[1.06]">
               Interested in the current <em className="italic">offering?</em>
             </h2>
           </Reveal>
