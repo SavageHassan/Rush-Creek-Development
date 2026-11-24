@@ -186,7 +186,7 @@ export default function HomeHero() {
               onMouseLeave={() => setHovered(null)}
               className="hidden w-[30%] shrink-0 lg:block"
             >
-              <li className="label pb-4 text-paper/70">Selected work</li>
+              <li className="label pb-4 text-paper/80">Selected work</li>
               {projects.map((p) => (
                 <li key={p.slug} className="border-t border-white/30">
                   <Link
@@ -194,16 +194,16 @@ export default function HomeHero() {
                     onMouseEnter={() => setHovered(p.slug)}
                     className="group flex items-baseline gap-4 py-4"
                   >
-                    <span className="label w-6 shrink-0 text-paper/60">{p.index}</span>
+                    <span className="display w-7 shrink-0 text-[0.95rem] leading-none text-paper/70">{p.index}</span>
                     <span className="min-w-0 flex-1">
                       <span
-                        className={`block truncate text-[1.02rem] transition-all duration-500 ease-editorial ${
-                          hovered === p.slug ? 'translate-x-1 text-white' : 'text-paper'
+                        className={`display block truncate text-[1.15rem] leading-tight transition-transform duration-500 ease-editorial ${
+                          hovered === p.slug ? 'translate-x-1' : ''
                         }`}
                       >
                         {p.name}
                       </span>
-                      <span className="label mt-1 block text-paper/70">{p.location}</span>
+                      <span className="label mt-2 block font-medium text-paper/75">{p.location}</span>
                     </span>
                   </Link>
                 </li>
