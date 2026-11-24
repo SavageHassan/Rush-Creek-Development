@@ -63,8 +63,8 @@ export default function HomeHero() {
 
       {/* Grade — warm, architectural, legible */}
       <div className="absolute inset-0 bg-bronze-deep/25 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink-deep via-ink-deep/72 to-ink-deep/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/20 to-ink-deep/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/45 to-ink-deep/30 lg:bg-gradient-to-r lg:from-ink-deep lg:via-ink-deep/72 lg:to-ink-deep/25" />
+      <div className="absolute inset-0 bg-ink-deep/25 lg:bg-gradient-to-t lg:from-ink-deep lg:via-ink-deep/20 lg:to-ink-deep/70" />
       <div className="grain absolute inset-0" />
 
       {/* Architectural frame */}
@@ -95,7 +95,7 @@ export default function HomeHero() {
             </span>
           </motion.div>
 
-          <h1 className="display mt-10 max-w-[13ch] text-[clamp(3.4rem,11vw,10rem)] leading-[0.9]">
+          <h1 className="display mt-10 max-w-[13ch] text-[clamp(2.9rem,11vw,10rem)] leading-[0.9]">
             {['Building', 'Legacy', 'Developments'].map((word, i) => (
               <span key={word} className="block overflow-hidden pb-[0.055em]">
                 <motion.span
@@ -114,7 +114,7 @@ export default function HomeHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.72 }}
-            className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+            className="mt-8 flex flex-col gap-7 lg:mt-10 lg:flex-row lg:items-end lg:justify-between"
           >
             <p className="max-w-lg text-[1.05rem] leading-[1.7] text-paper/80">
               Creating lasting value for investors by building institutional quality product for the
