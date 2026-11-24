@@ -143,8 +143,8 @@ export default function HomeHero() {
           className="absolute inset-x-0 bottom-0"
         >
           <div className="shell">
-            <div className="flex flex-col gap-5 border-t border-bronze/40 py-5 lg:flex-row lg:items-center lg:justify-between">
-              <dl className="grid grid-cols-2 gap-x-8 gap-y-4 sm:flex sm:gap-12">
+            <div className="border-t border-bronze/40 py-5">
+              <dl className="grid grid-cols-2 gap-x-8 gap-y-4 sm:flex sm:gap-12 lg:gap-16">
                 {rail.map((s) => (
                   <div key={s.label} className="flex items-baseline gap-3">
                     <dd className="display text-[1.7rem] leading-none">{s.value}</dd>
@@ -153,16 +153,6 @@ export default function HomeHero() {
                 ))}
               </dl>
 
-              <Link
-                href="/projects/renew-wichita"
-                className="label link-underline hidden items-center gap-3 text-paper/60 hover:text-bronze-light lg:flex"
-              >
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bronze opacity-70" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-bronze-light" />
-                </span>
-                Film &mdash; Renew | Wichita, Kansas
-              </Link>
             </div>
           </div>
         </motion.div>

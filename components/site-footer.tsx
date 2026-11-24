@@ -119,7 +119,7 @@ export default function SiteFooter() {
 
         <div className="flex flex-col gap-2 border-t border-white/12 py-5 text-[0.7rem] text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {site.copyrightYear} {site.legalName}. All rights reserved.
+            &copy; {site.copyrightYear} {site.legalName}. All rights reserved.
           </p>
           <p>Minnesota &amp; the Midwest</p>
         </div>

@@ -46,6 +46,22 @@ export default function HomePage() {
         <div className="shell grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <SectionHead index="01" label="The firm" />
+            <Reveal delay={0.15}>
+              <dl className="mt-12 space-y-7">
+                {[
+                  { k: 'Discipline', v: 'Boutique real estate development' },
+                  { k: 'Focus', v: 'Challenging and historic sites across the Midwest' },
+                  { k: 'Scope', v: 'Capital raising, development, strategic asset sales' },
+                ].map((row) => (
+                  <div key={row.k} className="border-t border-ink/12 pt-4">
+                    <dt className="label text-bronze-deep">{row.k}</dt>
+                    <dd className="mt-2 max-w-[26ch] text-[0.95rem] leading-relaxed text-ink/70">
+                      {row.v}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
           </div>
           <div className="md:col-span-8 md:pl-[6%]">
             <h2 className="display text-[clamp(2rem,4.2vw,3.6rem)] leading-[1.06]">
@@ -81,21 +97,62 @@ export default function HomePage() {
       </section>
 
       {/* Track record */}
-      <section className="bg-ink py-20 text-paper md:py-28">
-        <div className="shell">
-          <SectionHead index="02" label="Track record" tone="light" />
-          <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-14 lg:grid-cols-4">
-            {trackRecord.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 0.08}>
-                <div className="border-t border-bronze/45 pt-6">
-                  <dd className="display text-[clamp(3rem,7vw,6rem)] leading-none">
-                    <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
-                  </dd>
-                  <dt className="label mt-5 text-bronze-light/85">{stat.label}</dt>
-                </div>
-              </Reveal>
-            ))}
-          </dl>
+      <section className="bg-ink py-24 text-paper md:py-32">
+        <div className="shell grid gap-14 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <SectionHead index="02" label="Track record" tone="light" />
+            <h2 className="display mt-8 text-[clamp(2rem,3.8vw,3.2rem)] leading-[1.06]">
+              <RevealLines
+                lines={[
+                  <span key="l1">A record built on</span>,
+                  <em key="l2" className="italic text-bronze-light">
+                    delivery, not projection.
+                  </em>,
+                ]}
+              />
+            </h2>
+            <Reveal delay={0.12}>
+              <p className="mt-8 max-w-md text-[1rem] leading-[1.8] text-paper/70">
+                Three developments across Minnesota and Kansas, each taken from site assembly
+                through entitlement, capital and construction. Two more are underway for 2026.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Link
+                  href="/projects"
+                  className="label border border-bronze px-7 py-4 text-bronze-light transition-colors duration-500 hover:bg-bronze hover:text-ink-deep"
+                >
+                  See the portfolio
+                </Link>
+                <Link href="/firm" className="label link-underline py-4 text-paper/70 hover:text-white">
+                  How we underwrite
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-6 md:col-start-7">
+            <dl className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+              {trackRecord.map((stat, i) => (
+                <Reveal key={stat.label} delay={i * 0.08}>
+                  <div className="border-t border-bronze/45 py-8">
+                    <dd className="display text-[clamp(3rem,6vw,5.2rem)] leading-none">
+                      <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                    </dd>
+                    <dt className="label mt-4 text-bronze-light/85">{stat.label}</dt>
+                  </div>
+                </Reveal>
+              ))}
+            </dl>
+            <Reveal delay={0.3}>
+              <p className="mt-6 border-t border-white/12 pt-6 text-[0.78rem] leading-relaxed text-paper/40">
+                Figures as published by Rush Creek Development. Average IRR reflects realised
+                results across completed projects; target returns on current offerings are stated
+                as targets on each project page.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

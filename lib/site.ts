@@ -8,7 +8,10 @@ export const site = {
     'https://outlook.office.com/book/IntroductoryMeeting@rushcreekdevelopment.com/?ismsaljsauthenabled',
   linkedinUrl: 'https://www.linkedin.com/company/105588369/admin/dashboard/',
   liveSite: 'https://www.rushcreekdevelopment.com/',
-  copyrightYear: '2024',
+  /** Rendered at build time so the notice never goes stale. */
+  get copyrightYear() {
+    return String(new Date().getFullYear());
+  },
 };
 
 export const nav = [
