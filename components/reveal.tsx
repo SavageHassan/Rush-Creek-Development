@@ -1,73 +1,88 @@
 'use client';
 
-import { motion, useInView, type Variants } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
-const ease = [0.22, 1, 0.36, 1] as const;
-
-export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
-};
-
-export const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-
 /**
- * Anything already on screen when the component mounts plays straight away.
- * Waiting on the intersection observer for above-the-fold content left heroes
- * blank for as long as the first paint took.
+ * Reveals are driven by a native IntersectionObserver and plain CSS
+ * transitions rather than a motion library's viewport helper, which proved
+ * unreliable for content that is already on screen when the page mounts.
+ *
+ * The hidden state only applies once `SmoothScroll` has marked the document
+ * with `.js`, so a failure to hydrate can never leave content invisible.
  */
-function useReveal(ref: React.RefObject<HTMLElement | null>, amount: number) {
-  const observed = useInView(ref, { once: true, amount });
-  const [onScreenAtMount, setOnScreenAtMount] = useState(false);
+function useShown(ref: React.RefObject<HTMLElement | null>) {
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) setOnScreenAtMount(true);
+
+    const onScreen = () => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight * 0.96 && r.bottom > 0;
+    };
+
+    if (typeof IntersectionObserver === 'undefined' || onScreen()) {
+      setShown(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: '0px 0px -6% 0px' },
+    );
+    io.observe(el);
+
+    // Safety net: anything still hidden shortly after mount gets shown.
+    const t = window.setTimeout(() => {
+      if (onScreen()) setShown(true);
+    }, 300);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, [ref]);
 
-  return observed || onScreenAtMount;
+  return shown;
 }
 
 export function Reveal({
   children,
-  className,
+  className = '',
   delay = 0,
-  as = 'div',
+  as: Tag = 'div',
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
   as?: 'div' | 'section' | 'li' | 'span';
 }) {
-  const Comp = motion[as];
   const ref = useRef<HTMLDivElement>(null);
-  const show = useReveal(ref, 0.08);
+  const shown = useShown(ref);
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    <Comp
+    <Tag
       ref={ref as any}
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
-      transition={{ duration: 0.9, ease, delay }}
+      className={`reveal ${shown ? 'is-shown' : ''} ${className}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </Comp>
+    </Tag>
   );
 }
 
 /** Masked line reveal used for display headings. */
 export function RevealLines({
   lines,
-  className,
-  lineClassName,
+  className = '',
+  lineClassName = '',
   delay = 0,
 }: {
   lines: ReactNode[];
@@ -76,20 +91,18 @@ export function RevealLines({
   delay?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const show = useReveal(ref, 0.15);
+  const shown = useShown(ref);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`reveal-lines block ${shown ? 'is-shown' : ''} ${className}`}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.05em]">
-          <motion.span
-            className={`block ${lineClassName ?? ''}`}
-            initial={{ y: '112%' }}
-            animate={show ? { y: '0%' } : { y: '112%' }}
-            transition={{ duration: 1.05, ease, delay: delay + i * 0.08 }}
+        <span key={i} className="line">
+          <span
+            className={lineClassName}
+            style={{ transitionDelay: `${delay + i * 0.09}s` }}
           >
             {line}
-          </motion.span>
+          </span>
         </span>
       ))}
     </span>

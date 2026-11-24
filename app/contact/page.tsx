@@ -20,14 +20,15 @@ export default function ContactPage() {
         {/* Quiet plate behind the hero so the page opens on something, not a void */}
         <div className="absolute inset-0">
           <Image
-            src="/images/context/neighborhood-aerial.jpg"
+            src="/images/parkway/night-rendering.jpg"
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-30 grayscale"
+            className="object-cover grayscale contrast-[1.1]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-deep via-ink-deep/85 to-ink-deep/55" />
+          <div className="absolute inset-0 bg-ink-deep/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink-deep via-ink-deep/80 to-ink-deep/35" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-deep to-transparent" />
           <div className="grain absolute inset-0" />
         </div>

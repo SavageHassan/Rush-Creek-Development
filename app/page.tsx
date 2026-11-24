@@ -46,8 +46,7 @@ export default function HomePage() {
         <div className="shell">
           <SectionHead index="01" label="The firm" />
 
-          <div className="mt-12 grid gap-y-12 md:grid-cols-12 md:gap-x-10">
-            {/* Statement */}
+          <div className="mt-12 grid gap-y-10 md:grid-cols-12 md:gap-x-10">
             <div className="md:col-span-7">
               <h2 className="display text-[clamp(1.9rem,4vw,3.4rem)] leading-[1.04]">
                 <RevealLines
@@ -60,7 +59,6 @@ export default function HomePage() {
               </h2>
             </div>
 
-            {/* Lede sits opposite the statement, not beneath it */}
             <div className="md:col-span-5 md:pt-3">
               <Reveal delay={0.1} className="prose-editorial text-[1.02rem] leading-[1.8] text-ink/75">
                 <>
@@ -85,41 +83,60 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Full-bleed plate carries the section instead of white space */}
-          <Reveal delay={0.1} className="mt-16">
-            <ParallaxImage
-              src="/images/context/east-flats.jpg"
-              alt="A completed Rush Creek multifamily development at dusk"
-              className="aspect-[21/9] w-full"
-              sizes="100vw"
-              amount={9}
-            />
-          </Reveal>
-
-          {/* The three facts as a rule-separated strip, read left to right */}
-          <dl className="mt-14 grid gap-px border border-ink/12 bg-ink/12 sm:grid-cols-3">
+          {/* What the firm does, as cards */}
+          <ul className="mt-16 grid gap-7 md:grid-cols-3">
             {[
               {
-                k: 'Discipline',
-                v: 'A boutique real estate development firm, delivering for investors and the communities we build in.',
+                index: '01',
+                title: 'Transformative site development',
+                body: 'A boutique real estate development firm, specialising in challenging and historic sites throughout the Midwest.',
+                image: '/images/context/east-flats.jpg',
+                alt: 'A completed Rush Creek multifamily development at dusk',
               },
               {
-                k: 'Focus',
-                v: 'Challenging and historic sites throughout the Midwest, transformed into thriving developments.',
+                index: '02',
+                title: 'Municipal development consulting',
+                body: 'We partner with cities on development strategy — master planning, land use consulting and public-private partnership guidance.',
+                image: '/images/parkway/site-aerial.jpg',
+                alt: 'Aerial photograph of a Rush Creek development site',
               },
               {
-                k: 'Scope',
-                v: 'Capital raising, development and strategic asset sales, managed through to exit.',
+                index: '03',
+                title: 'Comprehensive capital solutions',
+                body: 'Financial strategy for real estate projects, from equity partnerships to managing tax incentives and strategic exits.',
+                image: '/images/context/neighborhood-aerial.jpg',
+                alt: 'Aerial photograph of a completed multifamily neighbourhood',
               },
-            ].map((row, i) => (
-              <Reveal key={row.k} delay={i * 0.08}>
-                <div className="h-full bg-paper p-7 md:p-9">
-                  <p className="label text-accent-deep">{row.k}</p>
-                  <p className="mt-4 text-[0.98rem] leading-[1.7] text-ink/75">{row.v}</p>
-                </div>
+            ].map((card, i) => (
+              <Reveal as="li" key={card.index} delay={i * 0.09}>
+                <Link
+                  href="/firm"
+                  className="group flex h-full flex-col border border-ink/12 bg-paper transition-colors duration-500 hover:border-ink/35"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={card.image}
+                      alt={card.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-[1400ms] ease-editorial group-hover:scale-[1.06]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-7 md:p-8">
+                    <span className="label text-accent-deep">{card.index}</span>
+                    <h3 className="display mt-4 text-[1.35rem] leading-tight md:text-[1.5rem]">
+                      {card.title}
+                    </h3>
+                    <p className="mt-4 flex-1 text-[0.95rem] leading-[1.75] text-ink/70">{card.body}</p>
+                    <span className="label mt-7 inline-flex items-center gap-2 text-ink transition-transform duration-500 ease-editorial group-hover:translate-x-1">
+                      Read more
+                      <span aria-hidden>&rarr;</span>
+                    </span>
+                  </div>
+                </Link>
               </Reveal>
             ))}
-          </dl>
+          </ul>
         </div>
       </section>
 

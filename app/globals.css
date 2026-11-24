@@ -149,3 +149,45 @@ html.lenis, html.lenis body { height: auto; }
     height: 1px;
   }
 }
+
+
+/* ---- Reveals -------------------------------------------------------------
+   Hidden states are scoped to `.js`, which SmoothScroll adds on mount, so
+   content is never left invisible if hydration fails. ---------------------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.js .reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-lines > .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+.reveal-lines > .line > * {
+  display: block;
+}
+.js .reveal-lines > .line > * {
+  transform: translateY(112%);
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js .reveal-lines.is-shown > .line > * {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .reveal-lines > .line > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

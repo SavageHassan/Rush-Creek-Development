@@ -34,8 +34,24 @@ export default function HomeHero() {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    v.play().catch(() => undefined);
+
+    // `canplay` often fires before React attaches its handler, which left the
+    // video playing underneath a poster at zero opacity.
+    const show = () => setReady(true);
+    if (v.readyState >= 2) show();
+    v.addEventListener('loadeddata', show);
+    v.addEventListener('canplay', show);
+    v.addEventListener('playing', show);
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.play().catch(() => undefined);
+    }
+
+    return () => {
+      v.removeEventListener('loadeddata', show);
+      v.removeEventListener('canplay', show);
+      v.removeEventListener('playing', show);
+    };
   }, []);
 
   return (
@@ -72,7 +88,6 @@ export default function HomeHero() {
           loop
           playsInline
           preload="auto"
-          onCanPlay={() => setReady(true)}
           className={`absolute inset-0 h-full w-full object-cover grayscale contrast-[1.12] transition-opacity duration-[1400ms] ${
             ready ? 'opacity-100' : 'opacity-0'
           }`}
@@ -81,13 +96,13 @@ export default function HomeHero() {
         </video>
       </motion.div>
 
-      {/* Grade */}
-      <div className="absolute inset-0 bg-ink-deep/35" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/30 to-ink-deep/55 lg:bg-gradient-to-r lg:from-ink-deep lg:via-ink-deep/60 lg:to-ink-deep/15" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink-deep/80 to-transparent" />
-      {/* Right-hand scrim so the project index keeps its contrast over bright frames */}
-      <div className="absolute inset-y-0 right-0 hidden w-[42%] bg-gradient-to-l from-ink-deep/90 via-ink-deep/55 to-transparent lg:block" />
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-ink-deep to-transparent" />
+      {/* Grade — dark enough to read against, light enough to see the film */}
+      <div className="absolute inset-0 bg-ink-deep/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/35 to-ink-deep/45 lg:bg-gradient-to-r lg:from-ink-deep/95 lg:via-ink-deep/30 lg:to-ink-deep/5" />
+      {/* Panel behind the project index */}
+      <div className="absolute inset-y-0 right-0 hidden w-[40%] bg-gradient-to-l from-ink-deep/95 via-ink-deep/75 to-transparent lg:block" />
+      <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink-deep/75 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink-deep to-transparent" />
       <div className="grain absolute inset-0" />
 
       {/* Content */}
@@ -171,24 +186,24 @@ export default function HomeHero() {
               onMouseLeave={() => setHovered(null)}
               className="hidden w-[30%] shrink-0 lg:block"
             >
-              <li className="label pb-4 text-paper/60">Selected work</li>
+              <li className="label pb-4 text-paper/70">Selected work</li>
               {projects.map((p) => (
-                <li key={p.slug} className="border-t border-white/20">
+                <li key={p.slug} className="border-t border-white/30">
                   <Link
                     href={`/projects/${p.slug}`}
                     onMouseEnter={() => setHovered(p.slug)}
                     className="group flex items-baseline gap-4 py-4"
                   >
-                    <span className="label w-6 shrink-0 text-paper/40">{p.index}</span>
+                    <span className="label w-6 shrink-0 text-paper/60">{p.index}</span>
                     <span className="min-w-0 flex-1">
                       <span
                         className={`block truncate text-[1.02rem] transition-all duration-500 ease-editorial ${
-                          hovered === p.slug ? 'translate-x-1 text-paper' : 'text-paper/85'
+                          hovered === p.slug ? 'translate-x-1 text-white' : 'text-paper'
                         }`}
                       >
                         {p.name}
                       </span>
-                      <span className="label mt-1 block text-paper/55">{p.location}</span>
+                      <span className="label mt-1 block text-paper/70">{p.location}</span>
                     </span>
                   </Link>
                 </li>
