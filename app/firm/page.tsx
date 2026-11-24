@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageHero from '@/components/page-hero';
 import SectionHead from '@/components/section-head';
 import ParallaxImage from '@/components/parallax-image';
-import PartnerMarquee from '@/components/partner-marquee';
+import PartnerGrid from '@/components/partner-grid';
 import { Reveal, RevealLines } from '@/components/reveal';
 import { press, services, team } from '@/lib/firm';
 import { site } from '@/lib/site';
@@ -184,10 +184,18 @@ export default function FirmPage() {
             </p>
           </Reveal>
           <ul className="mt-14 grid grid-cols-2 gap-8 md:grid-cols-3">
-            {press.map((src, i) => (
-              <Reveal as="li" key={src} delay={i * 0.08}>
-                <div className="relative aspect-[16/9] w-full overflow-hidden border border-ink/10 bg-white">
-                  <Image src={src} alt="Press feature" fill sizes="33vw" className="object-contain p-6" />
+            {press.map((item, i) => (
+              <Reveal as="li" key={item.name} delay={i * 0.08}>
+                <div className="flex aspect-[16/9] w-full items-center justify-center border border-ink/12 bg-paper-deep/60 p-8 transition-colors duration-500 hover:border-bronze/50">
+                  <div className="relative h-10 w-full">
+                    <Image
+                      src={item.logo}
+                      alt={`${item.name} logo`}
+                      fill
+                      sizes="(max-width: 768px) 45vw, 30vw"
+                      className="object-contain opacity-85"
+                    />
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -196,7 +204,7 @@ export default function FirmPage() {
           <div className="mt-20">
             <SectionHead label="Collaboration — our industry partners" />
             <div className="mt-10">
-              <PartnerMarquee />
+              <PartnerGrid />
             </div>
           </div>
         </div>

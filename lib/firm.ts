@@ -44,7 +44,7 @@ export const services = [
 ];
 
 export const press = [
-  '/images/press/press-1.jpg',
-  '/images/press/press-2.jpg',
-  '/images/press/press-3.jpg',
+  { name: 'TB Review', logo: '/images/press-mono/press-1.png' },
+  { name: 'RCR', logo: '/images/press-mono/press-2.png' },
+  { name: 'Palo Alto Tribunal', logo: '/images/press-mono/press-3.png' },
 ];

@@ -5,7 +5,7 @@ import StatementBand from '@/components/statement-band';
 import SectionHead from '@/components/section-head';
 import Counter from '@/components/counter';
 import ParallaxImage from '@/components/parallax-image';
-import PartnerMarquee from '@/components/partner-marquee';
+import PartnerGrid from '@/components/partner-grid';
 import ProjectIndex from '@/components/project-index';
 import { Reveal, RevealLines } from '@/components/reveal';
 import { projects } from '@/lib/projects';
@@ -219,7 +219,7 @@ export default function HomePage() {
         <div className="shell">
           <SectionHead index="05" label="Collaboration — our industry partners" />
           <div className="mt-12">
-            <PartnerMarquee />
+            <PartnerGrid />
           </div>
         </div>
       </section>
