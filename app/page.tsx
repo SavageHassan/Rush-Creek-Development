@@ -191,28 +191,19 @@ export default function HomePage() {
             ))}
           </ul>
 
-          <div className="mt-10 flex flex-col gap-6 border-t border-white/15 pt-7 md:flex-row md:items-center md:justify-between">
-            <Reveal>
-              <p className="max-w-3xl text-[0.78rem] leading-relaxed text-paper/40">
-                Figures as published by Rush Creek Development. Average IRR reflects realised results
-                across completed projects; target returns on current offerings are stated as targets
-                on each project page.
-              </p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="flex shrink-0 flex-wrap items-center gap-x-6 gap-y-3">
-                <Link
-                  href="/projects"
-                  className="label border border-white/35 px-7 py-4 text-paper transition-colors duration-500 hover:bg-paper hover:text-ink"
-                >
-                  See the portfolio
-                </Link>
-                <Link href="/firm" className="label link-underline py-4 text-paper/70 hover:text-white">
-                  How we underwrite
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+          <Reveal delay={0.1}>
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link
+                href="/projects"
+                className="label border border-white/35 px-7 py-4 text-paper transition-colors duration-500 hover:bg-paper hover:text-ink"
+              >
+                See the portfolio
+              </Link>
+              <Link href="/firm" className="label link-underline py-4 text-paper/70 hover:text-white">
+                How we underwrite
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
